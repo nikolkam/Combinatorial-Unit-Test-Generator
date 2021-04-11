@@ -10,20 +10,22 @@ def foo(a,b,c):
 
 
 class FunctionCallVisitor(ast.NodeVisitor):
+    """Visitor implementation to extract certain function definition AST based on name"""
     def __init__(self, name):
+        """@name : Name of function to extract"""
         self.name = name
         self.func = ast.FunctionDef()
         
     
     def visit_FunctionDef(self,node : ast.FunctionDef) -> bool:
         if(node.name == self.name):
-            print(ast.dump(node))
+            #print(ast.dump(node))
             self.func = node
         return True
 
-    def visit_Call(self,node : ast.Call):
-        #if(node.name == self.name):
-        print(ast.dump(node))
+    # def visit_Call(self,node : ast.Call):
+    #     #if(node.name == self.name):
+    #     #print(ast.dump(node))
 
 
 
