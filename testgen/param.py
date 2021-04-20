@@ -167,7 +167,7 @@ class TwiseConstructor:
 
         for _ in range(t,self.param_size):
             temp = self.horizontal_growth(temp)
-            
+
             
 
         # print(self.param_vecs)
@@ -402,8 +402,6 @@ class TwiseConstructor:
     def get_param(self,param_vec):
         '''Takes param vec and returns corresponding parameters'''
         result = []
-        #print(param_vec)
-        #print(self.params.__len__())
         for i in range(param_vec.__len__()):
             if param_vec[i] == 1:
                 result.append(copy.copy(self.params[i]))

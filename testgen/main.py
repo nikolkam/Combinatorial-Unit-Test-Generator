@@ -87,13 +87,19 @@ if __name__ == "__main__":
         #parameter
         parameters.append(parameter)
 
-    t = int(input("Enter the strength of the test T="))
-
+    while True:
+        t = int(input("Enter the strength of the test T="))
+        if t > parameters.__len__():
+            print("T must be in between 1-",parameters.__len__())
+            continue
+        break
     combination = param.Combination(parameters)
     if t == parameters.__len__():
         combination = param.all_combination(combination)
     else:
         T = param.TwiseConstructor(parameters, t)
+        print(T.param_vecs)
+        print(T.value_vec)
         combination = T.t_wise
 
     
